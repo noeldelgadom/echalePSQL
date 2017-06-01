@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601172832) do
+ActiveRecord::Schema.define(version: 20170601212855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(version: 20170601172832) do
     t.float "total_purse", default: 0.01
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "local_team_id"
+    t.bigint "visitor_team_id"
+    t.index ["local_team_id"], name: "index_matches_on_local_team_id"
+    t.index ["visitor_team_id"], name: "index_matches_on_visitor_team_id"
   end
 
   create_table "teams", force: :cascade do |t|
