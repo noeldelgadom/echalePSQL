@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
   before_action :find_match, only: [:show, :edit, :update, :destroy]
 
   def index
-    @matches = Match.all.order('kickoff DESC')
+    @matches = Match.all.order('kickoff')
   end
 
   def show
@@ -45,7 +45,7 @@ class MatchesController < ApplicationController
   private
 
     def match_params
-      params.require(:match).permit(:kickoff, :local_team_id, :visitor_team_id)
+      params.require(:match).permit(:kickoff, :local_purse, :tie_purse, :visitor_purse, :total_purse, :local_team_id, :visitor_team_id)
     end
 
     def find_match
