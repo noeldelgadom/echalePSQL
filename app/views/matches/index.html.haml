@@ -1,0 +1,26 @@
+.row
+  .col-md-3
+    = link_to 'New Match', new_match_path
+  .col-md-6
+    #matches.transitions-enabled
+      - @matches.each do |match|
+        .panel.panel-default
+          .panel-body
+            .row
+              .col-md-2
+                = image_tag match.local_team.image, class: 'small-image'
+              .col-md-8.vertical-center
+                %p
+                  = match.local_team.name
+            .row
+              .col-md-2
+                = image_tag match.visitor_team.image, class: 'small-image'
+              .col-md-8.vertical-center
+                %p
+                  = match.visitor_team.name
+          .panel-footer
+            - if user_signed_in?
+              = link_to 'Echale', match, class: 'btn btn-danger pull-right'
+            - else
+              = link_to 'Echale', new_user_session_path, class: 'btn btn-danger pull-right'
+            %p= match.kickoff
