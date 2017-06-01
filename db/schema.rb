@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601170904) do
+ActiveRecord::Schema.define(version: 20170601172832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "matches", force: :cascade do |t|
+    t.datetime "kickoff"
+    t.float "local_purse", default: 0.01
+    t.float "tie_purse", default: 0.01
+    t.float "visitor_purse", default: 0.01
+    t.float "total_purse", default: 0.01
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
