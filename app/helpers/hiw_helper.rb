@@ -1,0 +1,2 @@
+module HiwHelper
+end
