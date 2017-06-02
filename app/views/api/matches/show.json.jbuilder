@@ -6,5 +6,11 @@ json.visitor_purse @match.visitor_purse
 json.total_purse @match.total_purse
 
 json.local do
-  json.name Team.where(id: @match.local_team_id).name
+  json.name Team.find(@match.local_team_id).name
+  json.image_url Team.find(@match.local_team_id).image_url
+end
+
+json.visitor do
+  json.name Team.find(@match.visitor_team_id).name
+  json.image_url Team.find(@match.visitor_team_id).image_url
 end
