@@ -26,14 +26,23 @@
           .col-md-2
             = link_to number_with_precision(@match.total_purse / @match.visitor_purse,
             precision: 2), root_path, class: 'btn btn-warning'
+        %p
+          Kickoff
+          = @match.kickoff
       .panel-footer
         .row
-          .col-md-8
-            %h4
-              Kickoff
-              = @match.kickoff
+          .col-md-6
+            .btn-group{"data-toggle" => "buttons"}
+              %label.btn.btn-primary
+                %input{:autocomplete => "off", :type => "checkbox"}/
+                Local
+              %label.btn.btn-primary
+                %input{:autocomplete => "off", :type => "checkbox"}/
+                Tie
+              %label.btn.btn-primary
+                %input{:autocomplete => "off", :type => "checkbox"}/
+                Visitor
+          .col-md-2
+            %h4 Amount:
           .col-md-4
-            .pull-right
-              %h4
-                Total Purse
-                = @match.total_purse
+            %input.form-control{:placeholder => "$", :type => "text"}/
