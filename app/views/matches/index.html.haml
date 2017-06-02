@@ -30,7 +30,7 @@
                 precision: 2)
           .panel-footer
             - if user_signed_in?
-              = link_to 'Echale', match, class: 'btn btn-danger pull-right'
+              = link_to 'Echale', new_user_bet_path(user_id: current_user.id, match_id: match.id), class: 'btn btn-danger pull-right'
             - else
               = link_to 'Echale', new_user_session_path, class: 'btn btn-danger pull-right'
             %p= match.kickoff

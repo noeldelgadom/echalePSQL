@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  match: one
+  amount: 1.5
+  selection: MyString
+  outcome: MyString
+
+two:
+  user: two
+  match: two
+  amount: 1.5
+  selection: MyString
+  outcome: MyString

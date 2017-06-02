@@ -4,15 +4,15 @@
       .panel-body
         .pull-right
           = link_to number_with_precision(@match.total_purse / @match.local_purse,
-          precision: 2), edit_match_path, class: 'btn btn-warning'
+          precision: 2), root_path, class: 'btn btn-warning'
         %h2= @match.local_team.name
         .pull-right
           = link_to number_with_precision(@match.total_purse / @match.tie_purse,
-          precision: 2), edit_match_path, class: 'btn btn-warning'
+          precision: 2), root_path, class: 'btn btn-warning'
         %h2 Empate
         .pull-right
           = link_to number_with_precision(@match.total_purse / @match.visitor_purse,
-          precision: 2), edit_match_path, class: 'btn btn-warning'
+          precision: 2), root_path, class: 'btn btn-warning'
         %h2= @match.visitor_team.name
 
       .panel-footer
@@ -26,3 +26,6 @@
               %h4
                 Total Purse
                 = @match.total_purse
+
+
+%h1= @match.kickoff
