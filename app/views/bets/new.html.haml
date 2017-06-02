@@ -2,19 +2,30 @@
   .col-md-6.col-md-offset-3
     .panel.panel-default
       .panel-body
-        .pull-right
-          = link_to number_with_precision(@match.total_purse / @match.local_purse,
-          precision: 2), root_path, class: 'btn btn-warning'
-        %h2= @match.local_team.name
-        .pull-right
-          = link_to number_with_precision(@match.total_purse / @match.tie_purse,
-          precision: 2), root_path, class: 'btn btn-warning'
-        %h2 Empate
-        .pull-right
-          = link_to number_with_precision(@match.total_purse / @match.visitor_purse,
-          precision: 2), root_path, class: 'btn btn-warning'
-        %h2= @match.visitor_team.name
-
+        .row
+          .col-md-2
+            %img{ src: @match.local_team.image_url, class: 'small-image' }
+          .col-md-8.vertical-center
+            %h4
+              = @match.local_team.name
+          .col-md-2
+            = link_to number_with_precision(@match.total_purse / @match.local_purse,
+            precision: 2), root_path, class: 'btn btn-warning'
+        .row
+          .col-md-8.col-md-offset-2.vertical-center
+            %h4 x
+          .col-md-2
+            = link_to number_with_precision(@match.total_purse / @match.tie_purse,
+            precision: 2), root_path, class: 'btn btn-warning'
+        .row
+          .col-md-2
+            %img{ src: @match.visitor_team.image_url, class: 'small-image' }
+          .col-md-8.vertical-center
+            %h4
+              = @match.visitor_team.name
+          .col-md-2
+            = link_to number_with_precision(@match.total_purse / @match.visitor_purse,
+            precision: 2), root_path, class: 'btn btn-warning'
       .panel-footer
         .row
           .col-md-8
@@ -26,6 +37,3 @@
               %h4
                 Total Purse
                 = @match.total_purse
-
-
-%h1= @match.kickoff
